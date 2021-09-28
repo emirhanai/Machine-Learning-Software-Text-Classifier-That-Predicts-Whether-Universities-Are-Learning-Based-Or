@@ -133,29 +133,44 @@ for i in np.arange(1,2,1):
     #prediction comment (list type) to scipy.sparse.csr.csr_matrix type
     predict_change = change_detection.fit_transform(prediction)
 
-    #scipy.sparse.csr.csr_matrix prediction type to numpy array type
-    predict_to_array = np.array(predict_change)
+    #(predict_change.shape[1])
+    try:
+        while True:
+            if predict_change.shape[1] == 37:
+                
+                #scipy.sparse.csr.csr_matrix prediction type to numpy array type
+                predict_to_array = np.array(predict_change)
 
-    #prediction is the data!
-    prediction_system = model.predict(predict_change)
+                #prediction is the data!
+                prediction_system = model.predict(predict_change)
 
-    #Creating of the For loop. Because class name is the None :))
-    for i in prediction_system:
-        if prediction_system == np.array(1):
-            print(f"Yes! Don't need to Univeristy for learning, {yyyyy[0].upper()}")
-        elif prediction_system == np.array(0):
-            print(f"Yes! Need to Univeristy for learning, {yyyyy[1].upper()}")
+                #Creating of the For loop. Because class name is the None :))
+                
+                for i in prediction_system:
+            
+                    if prediction_system == np.array(1):
+            
+                        print(f"Yes! Don't need to Univeristy for learning, {yyyyy[0].upper()}")
+                    elif prediction_system == np.array(0):
+                        
+                        print(f"Yes! Need to Univeristy for learning, {yyyyy[1].upper()}")
 
-    #Different and exactly class name
-    class_name_two = ["not for learning","for learning"]
+                #Different and exactly class name
+                class_name_two = ["not for learning","for learning"]
 
-    #Creating for loop because prediction class...
-    for information, name in zip(class_name_two, prediction_system):
+                #Creating for loop because prediction class...
+                for information, name in zip(class_name_two, prediction_system):
+        
+                    print('%r => %s' % (information, xxxxx[name]))
 
-        print('%r => %s' % (information, xxxxx[name]))
-
-    #Accuracy Score!
-    print("Accuracy Score: ",np.mean(prediction_system == y_test)*100,"x: ",i)
+                    # Accuracy Score!
+                    print("Accuracy Score: ", np.mean(prediction_system == y_test) * 100, "x: ", i)
+                    
+                break
+            else:
+                print("Please, try again!")
+    except:
+        print("Please, try again!")
 
     #feature names are loading..
     feature_names = df.iloc[:,0:1]
@@ -178,6 +193,6 @@ for i in np.arange(1,2,1):
         print("Extra Trees in forest :) {} saved as dot file".format(iteration + 1))
 
     #Crate of tree graph about of text classification :))
-    for i in range(len(model.estimators_)):
-        save_decision_trees_as_dot(model.estimators_[i], i)
-        print(i)
+    #for i in range(len(model.estimators_)):
+    #    save_decision_trees_as_dot(model.estimators_[i], i)
+    #    print(i)
