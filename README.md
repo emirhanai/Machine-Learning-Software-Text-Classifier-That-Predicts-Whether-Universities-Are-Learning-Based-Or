@@ -4,11 +4,11 @@ Note: The software and data are completely original.
 
 _Example:_ 
 
-`change_detection_feature = CountVectorizer()
+`change_detection_feature = CountVectorizer()`
 
-change_tfid = TfidfTransformer()
+`change_tfid = TfidfTransformer()`
 
-y_change_function = CountVectorizer()`
+`y_change_function = CountVectorizer()`
 
 _Outpot :_ `Yes! Don't need to Univeristy for learning,  TRUE
 'not for learning' =>  "to learn; we must develop ourselves individually. we don't need universities."
